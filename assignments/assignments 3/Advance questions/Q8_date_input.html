@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Form</title>
+</head>
+<body>
+
+    <h2>Booking Form</h2>
+
+    <form>
+        <label for="name">Full Name:</label><br>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+
+        <label for="bookingDate">Select Booking Date:</label><br>
+        <input type="date" id="bookingDate" name="bookingDate" required>
+        <br><br>
+
+        <button type="submit">Book Now</button>
+    </form>
+
+    <script>
+        // Get today's date
+        let today = new Date();
+
+        // Convert date into YYYY-MM-DD format
+        let year = today.getFullYear();
+        let month = String(today.getMonth() + 1).padStart(2, '0');
+        let day = String(today.getDate()).padStart(2, '0');
+
+        let currentDate = year + "-" + month + "-" + day;
+
+        // Set minimum date as today
+        document.getElementById("bookingDate").min = currentDate;
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Method Form</title>
+</head>
+<body>
+
+    <h2>Select Payment Method</h2>
+
+    <form>
+
+        <label>Payment Method:</label>
+
+        <br><br>
+
+        <input
+            type="radio"
+            id="credit"
+            name="payment"
+            value="Credit Card"
+            required
+        >
+        <label for="credit">Credit Card</label>
+
+        <br><br>
+
+        <input
+            type="radio"
+            id="upi"
+            name="payment"
+            value="UPI"
+        >
+        <label for="upi">UPI</label>
+
+        <br><br>
+
+        <input
+            type="radio"
+            id="cash"
+            name="payment"
+            value="Cash on Delivery"
+        >
+        <label for="cash">Cash on Delivery</label>
+
+        <br><br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+</body>
+</html>

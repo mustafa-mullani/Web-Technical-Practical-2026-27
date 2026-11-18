@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Description List</title>
+</head>
+<body>
+
+    <h2>Programming Languages</h2>
+
+    <dl>
+        <dt>HTML</dt>
+        <dd>HTML is used to create web pages.</dd>
+
+        <dt>CSS</dt>
+        <dd>CSS is used to design web pages.</dd>
+
+        <dt>JavaScript</dt>
+        <dd>JavaScript is used to make web pages interactive.</dd>
+
+        <dt>Python</dt>
+        <dd>Python is a high-level programming language.</dd>
+    </dl>
+
+</body>
+</html>

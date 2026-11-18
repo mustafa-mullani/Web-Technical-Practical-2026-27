@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phone Number Form</title>
+</head>
+<body>
+
+    <h2>Phone Number Registration Form</h2>
+
+    <form>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"
+               placeholder="Enter your name" required>
+        <br><br>
+
+        <label for="phone">Phone Number:</label><br>
+        <input type="tel"
+               id="phone"
+               name="phone"
+               placeholder="123-456-7890"
+               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+               title="Enter number in format 123-456-7890"
+               required>
+        <br><br>
+
+        <input type="submit" value="Submit">
+
+        <input type="reset" value="Reset">
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address Details Form</title>
+</head>
+<body>
+
+    <h2>Address Details Form</h2>
+
+    <form>
+
+        <fieldset>
+
+            <legend>Address Information</legend>
+
+            <label for="house">House Number:</label>
+            <input
+                type="text"
+                id="house"
+                name="house"
+                placeholder="Enter house number"
+                required
+            >
+
+            <br><br>
+
+            <label for="street">Street:</label>
+            <input
+                type="text"
+                id="street"
+                name="street"
+                placeholder="Enter street name"
+                required
+            >
+
+            <br><br>
+
+            <label for="city">City:</label>
+            <input
+                type="text"
+                id="city"
+                name="city"
+                placeholder="Enter city"
+                required
+            >
+
+            <br><br>
+
+            <label for="state">State:</label>
+            <input
+                type="text"
+                id="state"
+                name="state"
+                placeholder="Enter state"
+                required
+            >
+
+            <br><br>
+
+            <label for="pincode">PIN Code:</label>
+            <input
+                type="text"
+                id="pincode"
+                name="pincode"
+                placeholder="Enter 6-digit PIN code"
+                pattern="[0-9]{6}"
+                required
+            >
+
+        </fieldset>
+
+        <br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+</body>
+</html>

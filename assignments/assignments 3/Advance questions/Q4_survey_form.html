@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Survey Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 30px;
+        }
+
+        .container {
+            width: 450px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Student Survey Form</h2>
+
+    <form>
+
+        <!-- Text Input -->
+        <label>Full Name:</label>
+        <input type="text" name="name"
+               placeholder="Enter your name" required>
+
+        <!-- Radio Buttons -->
+        <label>Gender:</label><br>
+
+        <input type="radio" name="gender"
+               value="Male" required> Male
+
+        <input type="radio" name="gender"
+               value="Female"> Female
+
+        <input type="radio" name="gender"
+               value="Other"> Other
+
+        <br><br>
+
+        <!-- Checkboxes -->
+        <label>Select Your Interests:</label><br>
+
+        <input type="checkbox" name="interest"
+               value="Programming"> Programming
+
+        <input type="checkbox" name="interest"
+               value="Sports"> Sports
+
+        <input type="checkbox" name="interest"
+               value="Music"> Music
+
+        <input type="checkbox" name="interest"
+               value="Reading"> Reading
+
+        <br><br>
+
+        <!-- Dropdown -->
+        <label>Education:</label>
+
+        <select name="education" required>
+            <option value="">Select Education</option>
+            <option value="SSC">SSC</option>
+            <option value="HSC">HSC</option>
+            <option value="Graduation">Graduation</option>
+            <option value="Post Graduation">Post Graduation</option>
+        </select>
+
+        <!-- Textarea -->
+        <label>Feedback:</label>
+
+        <textarea name="feedback"
+                  placeholder="Enter your feedback"
+                  required></textarea>
+
+        <br>
+
+        <!-- Buttons -->
+        <button type="submit">Submit Survey</button>
+
+        <button type="reset">Reset</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

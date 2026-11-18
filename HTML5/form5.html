@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Application Form</title>
+</head>
+<body>
+
+    <h2>Job Application Form</h2>
+
+    <form>
+
+        Full Name:
+        <input type="text" name="name"
+        placeholder="Enter Full Name" required>
+        <br><br>
+
+        Email:
+        <input type="email" name="email" required>
+        <br><br>
+
+        Mobile:
+        <input type="tel" name="mobile"
+        pattern="[0-9]{10}"
+        placeholder="10 Digit Mobile Number" required>
+        <br><br>
+
+        Date of Birth:
+        <input type="date" name="dob">
+        <br><br>
+
+        Position:
+        <select name="position">
+            <option>Web Developer</option>
+            <option>Software Developer</option>
+            <option>Data Analyst</option>
+            <option>IT Support</option>
+        </select>
+        <br><br>
+
+        Experience:
+        <input type="number" name="experience"
+        min="0" max="30">
+        <br><br>
+
+        Upload Resume:
+        <input type="file" name="resume"
+        accept=".pdf,.doc,.docx">
+        <br><br>
+
+        Expected Salary:
+        <input type="number" name="salary"
+        min="10000" step="1000">
+        <br><br>
+
+        <input type="checkbox" required>
+        I agree to the terms and conditions.
+        <br><br>
+
+        <input type="submit" value="Apply Now">
+        <input type="reset" value="Reset">
+
+    </form>
+
+</body>
+</html>

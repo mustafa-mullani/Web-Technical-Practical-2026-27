@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+
+    <script>
+        function validateForm() {
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (password !== confirmPassword) {
+                alert("Password and Confirm Password do not match!");
+                return false;
+            }
+
+            alert("Registration Successful!");
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+
+    <h2>Student Registration Form</h2>
+
+    <form onsubmit="return validateForm()">
+
+        <!-- Name -->
+        <label>Full Name:</label><br>
+        <input type="text" name="name"
+               placeholder="Enter your full name"
+               pattern="[A-Za-z ]{3,50}"
+               title="Enter at least 3 letters"
+               required>
+        <br><br>
+
+        <!-- Email -->
+        <label>Email:</label><br>
+        <input type="email" name="email"
+               placeholder="Enter your email"
+               required>
+        <br><br>
+
+        <!-- Password -->
+        <label>Password:</label><br>
+        <input type="password" id="password"
+               name="password"
+               placeholder="Enter password"
+               minlength="8"
+               pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+=!]).{8,}"
+               title="Minimum 8 characters, including uppercase, lowercase, number and special character"
+               required>
+        <br><br>
+
+        <!-- Confirm Password -->
+        <label>Confirm Password:</label><br>
+        <input type="password" id="confirmPassword"
+               name="confirmPassword"
+               placeholder="Confirm your password"
+               required>
+        <br><br>
+
+        <!-- Gender -->
+        <label>Gender:</label><br>
+
+        <input type="radio" name="gender"
+               value="Male" required> Male
+
+        <input type="radio" name="gender"
+               value="Female"> Female
+
+        <input type="radio" name="gender"
+               value="Other"> Other
+
+        <br><br>
+
+        <!-- Country -->
+        <label>Country:</label><br>
+
+        <select name="country" required>
+            <option value="">Select Country</option>
+            <option value="India">India</option>
+            <option value="USA">USA</option>
+            <option value="UK">UK</option>
+            <option value="Canada">Canada</option>
+            <option value="Australia">Australia</option>
+        </select>
+
+        <br><br>
+
+        <!-- Buttons -->
+        <input type="submit" value="Register">
+        <input type="reset" value="Reset">
+
+    </form>
+
+</body>
+</html>

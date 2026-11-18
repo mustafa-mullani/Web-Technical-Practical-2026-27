@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions Form</title>
+</head>
+<body>
+
+    <h2>Registration Form</h2>
+
+    <form>
+
+        <label for="username">Username:</label>
+        <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter username"
+            required
+        >
+
+        <br><br>
+
+        <input
+            type="checkbox"
+            id="terms"
+            onchange="toggleButton()"
+        >
+
+        <label for="terms">
+            I accept the Terms & Conditions
+        </label>
+
+        <br><br>
+
+        <button type="submit" id="submitBtn" disabled>
+            Submit
+        </button>
+
+    </form>
+
+    <script>
+
+        function toggleButton() {
+
+            let checkbox = document.getElementById("terms");
+            let button = document.getElementById("submitBtn");
+
+            button.disabled = !checkbox.checked;
+
+        }
+
+    </script>
+
+</body>
+</html>

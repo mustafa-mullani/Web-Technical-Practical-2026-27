@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multi-Step Registration Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 30px;
+        }
+
+        .container {
+            background: white;
+            width: 400px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #success {
+            color: green;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Registration Form</h2>
+
+    <p id="stepTitle">Step 1 of 3: Personal Information</p>
+
+    <form id="registrationForm" novalidate>
+
+        <!-- STEP 1: PERSONAL INFORMATION -->
+        <div class="step active">
+
+            <h3>Personal Information</h3>
+
+            <label>Full Name:</label>
+            <input type="text" id="name"
+                   placeholder="Enter your name"
+                   required>
+
+            <label>Date of Birth:</label>
+            <input type="date" id="dob" required>
+
+            <label>Gender:</label>
+            <select id="gender" required>
+                <option value="">Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+
+        </div>
+
+        <!-- STEP 2: CONTACT INFORMATION -->
+        <div class="step">
+
+            <h3>Contact Information</h3>
+
+            <label>Email:</label>
+            <input type="email" id="email"
+                   placeholder="Enter your email"
+                   required>
+
+            <label>Phone Number:</label>
+            <input type="tel" id="phone"
+                   placeholder="Enter 10-digit mobile number"
+                   pattern="[0-9]{10}"
+                   required>
+
+            <label>Address:</label>
+            <textarea id="address"
+                      placeholder="Enter your address"
+                      required></textarea>
+
+        </div>
+
+        <!-- STEP 3: SUBMIT -->
+        <div class="step">
+
+            <h3>Review Your Details</h3>
+
+            <p id="summary"></p>
+
+            <p>Please check your information before submitting.</p>
+
+            <button type="submit">Submit Registration</button>
+
+        </div>
+
+        <br>
+
+        <div class="buttons">
+
+            <button type="button" id="prevBtn"
+                    onclick="changeStep(-1)"
+                    style="display:none;">
+                Previous
+            </button>
+
+            <button type="button" id="nextBtn"
+                    onclick="changeStep(1)">
+                Next
+            </button>
+
+        </div>
+
+    </form>
+
+    <h3 id="success"></h3>
+
+</div>
+
+<script>
+
+    let currentStep = 0;
+
+    let steps = document.querySelectorAll(".step");
+
+    let stepTitle = document.getElementById("stepTitle");
+
+    function showStep(n) {
+
+        steps.forEach(step => {
+            step.classList.remove("active");
+        });
+
+        steps[n].classList.add("active");
+
+        stepTitle.innerText =
+            "Step " + (n + 1) + " of 3: " +
+            ["Personal Information",
+             "Contact Information",
+             "Submit"][n];
+
+        document.getElementById("prevBtn").style.display =
+            n === 0 ? "none" : "block";
+
+        document.getElementById("nextBtn").style.display =
+            n === 2 ? "none" : "block";
+
+        if (n === 2) {
+            showSummary();
+        }
+    }
+
+    function changeStep(n) {
+
+        // Validate current step before moving forward
+        if (n === 1) {
+
+            let inputs = steps[currentStep]
+                .querySelectorAll("input, select, textarea");
+
+            for (let input of inputs) {
+
+                if (!input.checkValidity()) {
+                    input.reportValidity();
+                    return;
+                }
+            }
+        }
+
+        currentStep += n;
+
+        showStep(currentStep);
+    }
+
+    function showSummary() {
+
+        document.getElementById("summary").innerHTML =
+
+            "<b>Name:</b> " +
+            document.getElementById("name").value +
+
+            "<br><b>Date of Birth:</b> " +
+            document.getElementById("dob").value +
+
+            "<br><b>Gender:</b> " +
+            document.getElementById("gender").value +
+
+            "<br><b>Email:</b> " +
+            document.getElementById("email").value +
+
+            "<br><b>Phone:</b> " +
+            document.getElementById("phone").value +
+
+            "<br><b>Address:</b> " +
+            document.getElementById("address").value;
+    }
+
+    document.getElementById("registrationForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            document.getElementById("success").innerText =
+                "Registration Submitted Successfully!";
+
+            this.style.display = "none";
+            stepTitle.style.display = "none";
+        });
+
+    showStep(currentStep);
+
+</script>
+
+</body>
+</html>

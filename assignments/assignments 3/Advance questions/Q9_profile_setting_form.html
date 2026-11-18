@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile Settings</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 30px;
+        }
+
+        .container {
+            width: 350px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="color"] {
+            height: 45px;
+        }
+
+        button {
+            margin-top: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #preview {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Profile Settings</h2>
+
+        <form id="profileForm">
+
+            <label for="name">Name:</label>
+            <input type="text" id="name"
+                   name="name"
+                   placeholder="Enter your name"
+                   required>
+
+            <label for="picture">Profile Picture:</label>
+            <input type="file" id="picture"
+                   name="picture"
+                   accept="image/*">
+
+            <img id="preview" alt="Profile preview">
+
+            <label for="theme">Choose Colour Theme:</label>
+            <input type="color" id="theme"
+                   name="theme"
+                   value="#007bff">
+
+            <button type="submit">Save Settings</button>
+
+        </form>
+
+        <p id="message"></p>
+    </div>
+
+    <script>
+        // Preview selected profile picture
+        document.getElementById("picture").addEventListener(
+            "change", function() {
+
+                const file = this.files[0];
+
+                if (file) {
+                    const preview = document.getElementById("preview");
+                    preview.src = URL.createObjectURL(file);
+                    preview.style.display = "block";
+                }
+            }
+        );
+
+        // Change theme colour
+        document.getElementById("theme").addEventListener(
+            "input", function() {
+                document.querySelector(".container").style.borderTop =
+                    "5px solid " + this.value;
+            }
+        );
+
+        // Save profile settings
+        document.getElementById("profileForm").addEventListener(
+            "submit", function(event) {
+
+                event.preventDefault();
+
+                const name = document.getElementById("name").value;
+
+                document.getElementById("message").textContent =
+                    "Profile settings saved for " + name + "!";
+            }
+        );
+    </script>
+
+</body>
+</html>

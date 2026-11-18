@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Colour Picker Form</title>
+</head>
+<body id="page">
+
+    <h2>Choose Background Colour</h2>
+
+    <form>
+        <label for="color">Select a Background Colour:</label>
+        <br><br>
+
+        <input type="color"
+               id="color"
+               name="backgroundColor"
+               value="#87CEEB"
+               onchange="document.body.style.backgroundColor = this.value">
+
+        <br><br>
+
+        <input type="reset" value="Reset"
+               onclick="setTimeout(() => {
+                   document.body.style.backgroundColor = 'white';
+               }, 0)">
+    </form>
+
+</body>
+</html>

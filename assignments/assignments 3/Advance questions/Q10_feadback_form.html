@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 30px;
+        }
+
+        .container {
+            width: 350px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .rating label {
+            font-size: 35px;
+            color: #ccc;
+            cursor: pointer;
+        }
+
+        .rating input:checked ~ label,
+        .rating label:hover,
+        .rating label:hover ~ label {
+            color: orange;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h2>Feedback Form</h2>
+
+        <form id="feedbackForm">
+
+            <p><b>Rate Your Experience:</b></p>
+
+            <div class="rating">
+                <input type="radio" id="star5"
+                       name="rating" value="5" required>
+                <label for="star5">★</label>
+
+                <input type="radio" id="star4"
+                       name="rating" value="4">
+                <label for="star4">★</label>
+
+                <input type="radio" id="star3"
+                       name="rating" value="3">
+                <label for="star3">★</label>
+
+                <input type="radio" id="star2"
+                       name="rating" value="2">
+                <label for="star2">★</label>
+
+                <input type="radio" id="star1"
+                       name="rating" value="1">
+                <label for="star1">★</label>
+            </div>
+
+            <br>
+
+            <label for="comment">
+                <b>Your Comments:</b>
+            </label>
+
+            <textarea id="comment"
+                      name="comment"
+                      placeholder="Write your feedback here..."
+                      required></textarea>
+
+            <button type="submit">Submit Feedback</button>
+
+        </form>
+
+        <p id="message"></p>
+
+    </div>
+
+    <script>
+        document.getElementById("feedbackForm")
+            .addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                const rating = document.querySelector(
+                    'input[name="rating"]:checked'
+                ).value;
+
+                const comment = document.getElementById("comment").value;
+
+                document.getElementById("message").textContent =
+                    "Thank you for your feedback! Rating: " +
+                    rating + " stars.";
+
+                console.log("Rating:", rating);
+                console.log("Comment:", comment);
+            });
+    </script>
+
+</body>
+</html>

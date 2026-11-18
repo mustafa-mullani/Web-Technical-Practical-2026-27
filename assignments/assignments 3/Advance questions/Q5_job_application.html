@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Application Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 30px;
+        }
+
+        .container {
+            width: 450px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px;
+            box-sizing: border-box;
+        }
+
+        input[type="file"] {
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Job Application Form</h2>
+
+    <form>
+
+        <!-- Full Name -->
+        <label>Full Name:</label>
+        <input type="text" name="fullname"
+               placeholder="Enter your full name"
+               required>
+
+        <!-- Email -->
+        <label>Email Address:</label>
+        <input type="email" name="email"
+               placeholder="Enter your email"
+               required>
+
+        <!-- Phone -->
+        <label>Phone Number:</label>
+        <input type="tel" name="phone"
+               placeholder="Enter 10-digit phone number"
+               pattern="[0-9]{10}"
+               required>
+
+        <!-- Job Position -->
+        <label>Job Position:</label>
+        <select name="position" required>
+            <option value="">Select Position</option>
+            <option value="Web Developer">Web Developer</option>
+            <option value="Software Developer">Software Developer</option>
+            <option value="Data Analyst">Data Analyst</option>
+            <option value="IT Support">IT Support</option>
+        </select>
+
+        <!-- Resume Upload -->
+        <label>Upload Resume:</label>
+        <input type="file"
+               name="resume"
+               accept=".pdf,.doc,.docx"
+               required>
+
+        <small>Allowed formats: PDF, DOC, DOCX only.</small>
+
+        <br><br>
+
+        <!-- Buttons -->
+        <button type="submit">Apply Now</button>
+
+        <button type="reset">Reset</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

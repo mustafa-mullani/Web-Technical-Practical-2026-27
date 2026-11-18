@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Form</title>
+</head>
+<body>
+
+    <h2>Online Feedback Form</h2>
+
+    <form>
+
+        Name:
+        <input type="text" name="name" required>
+        <br><br>
+
+        Email:
+        <input type="email" name="email" required>
+        <br><br>
+
+        Rate Our Service:
+        <select name="rating">
+            <option>Excellent</option>
+            <option>Good</option>
+            <option>Average</option>
+            <option>Poor</option>
+        </select>
+        <br><br>
+
+        Feedback:
+        <br>
+        <textarea name="feedback" rows="5" cols="30"
+        placeholder="Enter your feedback"></textarea>
+        <br><br>
+
+        Would you recommend us?
+        <input type="radio" name="recommend" value="Yes"> Yes
+        <input type="radio" name="recommend" value="No"> No
+        <br><br>
+
+        <input type="submit" value="Send Feedback">
+        <input type="reset" value="Clear">
+
+    </form>
+
+</body>
+</html>
